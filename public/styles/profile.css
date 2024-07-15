@@ -1,0 +1,23 @@
+form {
+    padding: 5px;
+    border: 1px solid var(--color-border-inactive);
+    border-radius: 8px;
+}
+
+.btn-danger {
+    background-color: rgba(255, 0, 0, 0.2);
+    width: fit-content;
+}
+
+.btn-danger:hover {
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.error_msg {
+    color: red;
+}
+
+main {
+    animation: FadeIn ease-out 150ms;
+}

@@ -1,0 +1,9 @@
+:root {
+    --color-main: rgb(0, 117, 255);
+    --color-hover: rgba(0, 117, 255, 0.5);
+    --color-border-inactive: rgb(185, 185, 185);
+
+    --safe-zone-width: 10vw;
+
+    --header-heigth: 10vh;
+}

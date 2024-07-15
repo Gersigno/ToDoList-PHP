@@ -1,0 +1,29 @@
+main { 
+    justify-content: center;
+
+    /* Total heigth - header heigth */
+    height: calc(100vh - var(--header-heigth));
+
+    align-items: center;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    label {
+        text-align: left;
+    }
+    p {
+        color: red;
+        text-align: left;
+    }
+}
+
+h2 {
+    font-size: clamp(1.2em, 2vw, 3em);;
+}
+
+h3 {
+    font-size: clamp(0.6em, 1.2vw, 1.5em);;
+}

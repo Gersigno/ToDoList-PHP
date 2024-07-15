@@ -1,0 +1,154 @@
+* {
+    font-family: system-ui;
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100vw;
+    padding-left: var(--safe-zone-width);
+    padding-right: var(--safe-zone-width);
+
+    padding-top: 5vh;
+    margin-top: var(--header-heigth);
+    margin-bottom: var(--header-heigth);
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    div {
+        display: flex;
+        justify-content: flex-end;
+    }
+    button {
+        margin: 0px;
+    }
+}
+
+a, button, p {
+    font-size: clamp(0.6em, 1.5vw, 0.8em);
+}
+
+ol {
+    padding-top: 5px;
+}
+
+.btn {
+    text-decoration: none;
+    margin: 4px;
+    border-radius: 8px;
+    padding: 2px 6px 2px 6px;
+    cursor: pointer;
+}
+
+.btn-big {
+    padding: 8px;
+}
+
+.btn-action {
+    background-color: var(--color-main);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--color-main);
+    color: white;
+    border: 1px solid white;
+}
+
+.btn-danger {
+    color: rgb(255, 0, 0);
+    border: 1px solid rgb(255, 0, 0);
+}
+
+input[type="text"], input[type="password"], textarea {
+    border: 1px solid var(--color-border-inactive);
+    border-radius: 8px;
+    padding: 2px 6px 2px 6px;
+    width: -webkit-fill-available;
+    resize: none;
+}
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.input_required {
+    border: 1px solid red;
+}
+
+button {
+    margin: 2px;
+    padding: 8px;
+    transition: 200ms;
+    background-color: transparent;
+    border: 1px solid var(--color-border-inactive);
+    border-radius: 8px;
+    width: auto;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--color-hover);
+}
+
+.btn-danger:hover {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+input:disabled {
+    background-color: var(--color-border-inactive);
+    cursor: default;
+}
+
+.filter-selected {
+    background-color: var(--color-main);
+    color: white;
+}
+
+#filters-container > button {
+    border: 0 solid;
+    border-radius: 0px;
+    color: var(--color-main);
+    border-top: 1px solid var(--color-main);
+    border-bottom: 1px solid var(--color-main);
+    border-left: 1px solid var(--color-main);
+}
+#filters-container > .filter-selected {
+    color: white;
+}
+#filters-container > button:hover {
+    color: white;
+}
+#filters-container > button:first-child {
+    border-radius: 8px 0px 0px 8px;
+    border-left: 1px solid var(--color-main);
+
+}
+#filters-container > button:last-child {
+    border-radius: 0px 8px 8px 0px;
+    border-right: 1px solid var(--color-main);
+}
+
+h4 {
+    font-weight: 500;
+}

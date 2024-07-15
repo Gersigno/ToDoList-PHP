@@ -1,0 +1,39 @@
+header {
+    background-color: var(--color-main);
+    width: 100vw;
+    height: var(--header-heigth);
+    display: flex;
+    padding-left: var(--safe-zone-width);
+    padding-right: var(--safe-zone-width);
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+
+    z-index: 1;
+
+    h1 {
+        font-size: clamp(1.2em, 2vw, 3em);
+    }
+    a {
+        display: flex;
+        align-items: center;
+
+        text-decoration: none;
+        color: white;
+
+        font-weight: 700;
+    }
+    div {
+        display: flex;
+    }
+    .btn-action {
+        background-color: white;
+        color: var(--color-main);
+    }
+}
+
+.header-logo {
+    height: 5vh;
+    aspect-ratio: 1;
+}
