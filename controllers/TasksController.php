@@ -62,4 +62,20 @@ class TasksController extends Controller
             echo("Forbiden");
         }
     }
+
+    /**
+     * Return the expiration date of the intended task (NULL if no expiration date defined.)
+     * The tasks also need to be owned by the current user !
+     */
+    public function getExpiration($id) {
+        //If server request containt XMLHttpRequest header property
+        if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == "XMLHttpRequest") {
+            $tasks = new Tasks();
+            header('Content-Type: application/json; charset=utf-8');
+            http_response_code(200);
+            echo(json_encode($tasks->getExpiration($id)));
+        } else {
+            echo("Forbiden");
+        }
+    }
 }
