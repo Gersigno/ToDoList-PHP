@@ -153,7 +153,7 @@ function Pop_DeleteTask(elem_task) {
   }
 }
 
-function Pop_EditTask(elem_task) {
+async function Pop_EditTask(elem_task) {
   const TASK_ID = parseInt(elem_task.parentNode.dataset.taskId);
   const TASK_NAME = elem_task.parentNode.children[0].children[0].innerText;
   const TASK_DESCRIPTION = elem_task.parentNode.children[0].children[1].innerText;
@@ -188,7 +188,8 @@ function Pop_EditTask(elem_task) {
   CURRENT_TIME.setMinutes(CURRENT_TIME.getMinutes() - CURRENT_TIME.getTimezoneOffset());
   if(TASK_EXPIRATION_DATE != undefined) {
     INPUT_EXPIRE_CHECKBOX.checked = true;
-    INPUT_EXPIRE_DATE.value = TASK_EXPIRATION_DATE.innerHTML;
+    const TASK_EXPIRATION = await TASKS.getExpirationDate(TASK_ID);
+    INPUT_EXPIRE_DATE.value = TASK_EXPIRATION;
   } else {
     INPUT_EXPIRE_CHECKBOX.checked = false;
     INPUT_EXPIRE_DATE.value = CURRENT_TIME.toISOString().slice(0,16);
