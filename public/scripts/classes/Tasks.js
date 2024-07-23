@@ -26,8 +26,9 @@ class Tasks {
         LABEL_AMOUNT.innerHTML = 'Loading...';
 
         const CONTENT = await fetch("Tasks/getAll", REQUEST_OPTIONS);
-        const RESPONSE = await CONTENT.json();
+        
         if(CONTENT.ok) {
+            const RESPONSE = await CONTENT.json();
             const TASKS_AMOUNT = RESPONSE.length;
             
             let indexLimit;
@@ -143,9 +144,22 @@ class Tasks {
     async delete(task_id) {
         const CONTENT = await fetch("Tasks/remove/" + task_id, REQUEST_OPTIONS);
         if(CONTENT.ok) {
-        const RESPONSE = await CONTENT.json();
-        document.getElementById("popup_elem").remove(); //Remove the confirmation popup of our user's screen.
-        this.readTasks();
+            const RESPONSE = await CONTENT.json();
+            document.getElementById("popup_elem").remove(); //Remove the confirmation popup of our user's screen.
+            this.readTasks();
+        }
+    }
+
+    /**
+     * Return the expiration date of the intended task
+     * @param {*} task_id 
+     * @returns 
+     */
+    async getExpirationDate(task_id) {
+        const CONTENT = await fetch("Tasks/getExpiration/" + task_id, REQUEST_OPTIONS);
+        if(CONTENT.ok) {
+            const RESPONSE = await CONTENT.json();
+            return RESPONSE;
         }
     }
 }
