@@ -34,8 +34,11 @@ class Users extends Model {
                 //Does username exists ?
                 if(!$this->doesUsernameExists($username)) {
                     //Create our SQL command to insert our user's informations in our user table
-                    $sqlInsert = "INSERT INTO users (`username`, `pass_hash`) VALUES (\"" . $username . "\", \"" . password_hash($password, PASSWORD_DEFAULT) . "\")";
-                    $this->runQuery($sqlInsert); //Run our SQL command
+                    $sqlInsert = "INSERT INTO users (`username`, `pass_hash`) VALUES (:username, :password);";
+                    $this->runQuery($sqlInsert, [
+                        ':username' => $username,
+                        ':password' => password_hash($password, PASSWORD_DEFAULT)
+                    ]); //Run our SQL command
 
                     //Finally, we check if our new username exists in our database to make sure our user was added correctly
                     if($this->doesUsernameExists($username)) {
